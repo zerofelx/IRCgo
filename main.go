@@ -25,7 +25,7 @@ func main() {
 	fmt.Println("Puedes también evitar cerrarme mientras juegas!")
 	fmt.Println("Puedes cerrar la ventana donde haces las consultas y dejarme minimizado")
 	fmt.Printf("Cuando vayas a volver a hacer consultas entra a la carpeta GUI e inicia 'IRC LoL.exe' :D ")
-	fmt.Println("\n")
+	fmt.Print("\n")
 	fmt.Print("No olvides cerrarme cuando termines! :)")
 
 	http.HandleFunc("/", handler)

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"strconv"
 
 	"github.com/zerofelx/IRCLoL/API"
 	"github.com/zerofelx/IRCLoL/css"
@@ -13,7 +14,19 @@ import (
 
 // Función principal donde se crea el servidor
 func main() {
-	fmt.Print("Corriendo servidor!")
+	var champs = len(API.API())
+	fmt.Println("Actualmente existen " + strconv.Itoa((champs - 1)) + " campeones en la base de datos!")
+	fmt.Println()
+	fmt.Println("Hola!")
+	fmt.Println("Bienvenido a IRCgo!")
+	fmt.Println("Yo soy el servidor local donde está almacenada la información! :D")
+	fmt.Println("Si me cierras no podrás hacer ninguna consulta! :)")
+	fmt.Println()
+	fmt.Println("Puedes también evitar cerrarme mientras juegas!")
+	fmt.Println("Puedes cerrar la ventana donde haces las consultas y dejarme minimizado")
+	fmt.Printf("Cuando vayas a volver a hacer consultas entra a la carpeta GUI e inicia 'IRC LoL.exe' :D ")
+	fmt.Println()
+	fmt.Print("No olvides cerrarme cuando termines! :)")
 
 	http.HandleFunc("/", handler)
 
@@ -42,8 +55,9 @@ func indexHTML() string {
 
 func campeones() string {
 	var indexar bytes.Buffer
+	var cantidadDeCampeones = len(API.API())
 
-	for i := 0; i < 7; i++ {
+	for i := 1; i < cantidadDeCampeones; i++ {
 		indexar.WriteString(crearIndex(i))
 	}
 

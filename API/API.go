@@ -11,9 +11,10 @@ type campeonesFirebase struct {
 	Nombre    string `json:"nombre"`
 	Subnombre string `json:"subnombre"`
 	Numero    int    `json:"numero"`
-	E         string `json:"E"`
 	P         string `json:"P"`
 	Q         string `json:"Q"`
+	W         string `json:"W"`
+	E         string `json:"E"`
 	R         string `json:"R"`
 	Counters  []int  `json:"counters"`
 	CountersB []int  `json:"countersB"`

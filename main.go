@@ -67,7 +67,7 @@ func campeones() string {
 func crearIndex(i int) string {
 	Campeones := API.API()
 
-	return `<div id="` + Campeones[i].Nombre + `">` + `
+	return `<div id="` + Campeones[i].Nombre + `"  onclick="VerCampeones(` + strconv.Itoa(Campeones[i].Numero) + `)">` + `
 	<h1>` + Campeones[i].Nombre + `</h1>` + `
 	<h2>` + Campeones[i].Subnombre + `</h2>
 	</div>

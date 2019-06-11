@@ -1,6 +1,9 @@
 package index
 
-import "github.com/zerofelx/IRCLoL/css"
+import (
+	"github.com/zerofelx/IRCLoL-Github/css"
+	"github.com/zerofelx/IRCLoL-Github/scripts"
+)
 
 // Header de la página inicial
 func Header() string {
@@ -23,6 +26,7 @@ func Header() string {
 // Footer de la página inicial
 func Footer() string {
 	return `</div>` + `
+	<script>` + scripts.VerCampeones() + `</script>
 	</body>
 	</html>`
 }

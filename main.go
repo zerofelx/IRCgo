@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/zerofelx/IRCLoL/API"
-	"github.com/zerofelx/IRCLoL/css"
-	"github.com/zerofelx/IRCLoL/index"
+	"github.com/zerofelx/IRCLoL-Github/API"
+	"github.com/zerofelx/IRCLoL-Github/css"
+	"github.com/zerofelx/IRCLoL-Github/index"
 )
 
 // Función principal donde se crea el servidor
@@ -67,7 +67,7 @@ func campeones() string {
 func crearIndex(i int) string {
 	Campeones := API.API()
 
-	return `<div id="` + Campeones[i].Nombre + `"  onclick="VerCampeones(` + strconv.Itoa(Campeones[i].Numero) + `)">` + `
+	return `<div id="` + Campeones[i].Nombre + `" class="bloqueChamp"  onclick="VerCampeones(` + strconv.Itoa(Campeones[i].Numero) + `)">` + `
 	<h1>` + Campeones[i].Nombre + `</h1>` + `
 	<h2>` + Campeones[i].Subnombre + `</h2>
 	</div>

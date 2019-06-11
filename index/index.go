@@ -18,7 +18,14 @@ func Header() string {
 		<style>` + css.Main() + `</style>
 	</head>
 	<body>
-		<div class="main">
+
+		<div id="buscador"> 
+			<form id="form" method="POST">
+				<input id="buscarCampeon" type="text" placeholder="Buscar Campeón">
+			</form>
+		</div>
+
+		<div id="main">
 			
 	`
 }

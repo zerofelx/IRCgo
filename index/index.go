@@ -33,7 +33,9 @@ func Header() string {
 // Footer de la página inicial
 func Footer() string {
 	return `</div>` + `
-	<script>` + scripts.VerCampeones() + `</script>
+	<script>
+	` + scripts.VerCampeones() + `
+	</script>
 	</body>
 	</html>`
 }

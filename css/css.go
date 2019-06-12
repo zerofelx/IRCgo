@@ -25,8 +25,6 @@ func Main() string {
 		padding: 10px 5px;
 		width: 80%
 	}
-
-
 	.Campeones {
 		display: flex;
 		flex-wrap: wrap;
@@ -34,7 +32,7 @@ func Main() string {
 		justify-content: center;
 	}
 	.bloqueChamp {
-		min-width: 20%;
+		width: 25%;
 		border: 2px solid white;
 		padding: 4px;
 		margin: 5px;

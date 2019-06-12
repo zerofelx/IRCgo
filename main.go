@@ -14,24 +14,13 @@ import (
 
 // Función principal donde se crea el servidor
 func main() {
-	var champs = len(API.API())
-	fmt.Println("Actualmente existen " + strconv.Itoa((champs - 1)) + " campeones en la base de datos!")
-	fmt.Println()
-	fmt.Println("Hola!")
-	fmt.Println("Bienvenido a IRCgo!")
-	fmt.Println("Yo soy el servidor local donde está almacenada la información! :D")
-	fmt.Println("Si me cierras no podrás hacer ninguna consulta! :)")
-	fmt.Println()
-	fmt.Println("Puedes también evitar cerrarme mientras juegas!")
-	fmt.Println("Puedes cerrar la ventana donde haces las consultas y dejarme minimizado")
-	fmt.Printf("Cuando vayas a volver a hacer consultas entra a la carpeta GUI e inicia 'IRC LoL.exe' :D ")
-	fmt.Print("\n")
-	fmt.Print("No olvides cerrarme cuando termines! :)")
+	saludo()
 
 	http.HandleFunc("/", handler)
 
 	http.HandleFunc("assets/main.css", func(arg2 http.ResponseWriter, f *http.Request) {
 		io.WriteString(arg2, css.Main())
+
 	})
 
 	http.ListenAndServe(":8000", nil)
@@ -66,10 +55,26 @@ func campeones() string {
 
 func crearIndex(i int) string {
 	Campeones := API.API()
-
-	return `<div id="` + Campeones[i].Nombre + `" class="bloqueChamp"  onclick="VerCampeones(` + strconv.Itoa(Campeones[i].Numero) + `)">` + `
-	<h1>` + Campeones[i].Nombre + `</h1>` + `
-	<h2>` + Campeones[i].Subnombre + `</h2>
+	C := Campeones[i]
+	return `<div style="background-image: url('')" id="` + C.Nombre + `" class="bloqueChamp"  onclick="VerCampeones(` + strconv.Itoa(C.Numero) + `)">` + `
+	<h1>` + C.Nombre + `</h1>` + `
+	<h2>` + C.Subnombre + `</h2>
 	</div>
 	`
+}
+
+func saludo() {
+	var champs = len(API.API())
+	fmt.Println("Actualmente existen " + strconv.Itoa((champs - 1)) + " campeones en la base de datos!")
+	fmt.Println()
+	fmt.Println("Hola!")
+	fmt.Println("Bienvenido a IRCgo!")
+	fmt.Println("Yo soy el servidor local donde está almacenada la información! :D")
+	fmt.Println("Si me cierras no podrás hacer ninguna consulta! :)")
+	fmt.Println()
+	fmt.Println("Puedes también evitar cerrarme mientras juegas!")
+	fmt.Println("Puedes cerrar la ventana donde haces las consultas y dejarme minimizado")
+	fmt.Printf("Cuando vayas a volver a hacer consultas entra a la carpeta GUI e inicia 'ircgo.exe' :D ")
+	fmt.Print("\n")
+	fmt.Print("No olvides cerrarme cuando termines! :)")
 }
